@@ -1,20 +1,252 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>aaaa</title>
-    <link rel="stylesheet" href="/styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Andrij Pycha - Personal Ecosystem</title>
+    <meta
+      name="description"
+      content="A living personal ecosystem for Andrij Pycha: SEO, project creation, media, systems, communities, and future ideas."
+    />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="shell">
-      <section class="panel" aria-labelledby="title">
-        <p class="eyebrow">Vercel project</p>
-        <h1 id="title">aaaa is live</h1>
-        <p class="lede">
-          This starter page confirms the GitHub repository is connected to a deployable Vercel project.
+    <canvas id="signalField" aria-hidden="true"></canvas>
+
+    <header class="topbar" aria-label="Primary">
+      <a class="brand-mark" href="#home" aria-label="Andrij Pycha home">
+        <span class="brand-symbol">AP</span>
+        <span>
+          <strong>Andrij Pycha</strong>
+          <small>Personal ecosystem</small>
+        </span>
+      </a>
+
+      <nav class="nav-pills" aria-label="Page sections">
+        <a href="#self">Self</a>
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#accounts">Accounts</a>
+        <a href="#future">Future</a>
+      </nav>
+
+      <label class="search-shell">
+        <span>Search</span>
+        <input id="globalSearch" type="search" placeholder="systems, media, AI..." />
+      </label>
+    </header>
+
+    <main id="home">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="assets/andrij-ecosystem-hero.png"
+          alt="A cinematic desk by nature with maps, notes, digital interfaces, and project connections."
+        />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">SEO thinker. Project creator. System solver.</p>
+          <h1 id="hero-title">Andrij Pycha</h1>
+          <p class="hero-copy">
+            I build bridges between people, projects, media, automation, nature, and real life. My work is about seeing the wider image, finding the stuck parts, and turning complex human systems into something useful, honest, and alive.
+          </p>
+          <div class="hero-actions" aria-label="Main actions">
+            <a class="action primary" href="#projects">Explore ecosystem</a>
+            <a class="action secondary" href="#self">Change the lens</a>
+          </div>
+          <div class="hero-signals" aria-label="Profile signals">
+            <span>6 languages</span>
+            <span>17 European countries</span>
+            <span>4 media languages</span>
+            <span>4 topic streams</span>
+            <span>AI-native workflows</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="intro-band reveal" aria-labelledby="manifesto-title">
+        <div class="section-kicker">Positioning</div>
+        <h2 id="manifesto-title">A serious builder with an unserious refusal to become boring.</h2>
+        <p>
+          The center is simple: help people and projects become more clear, more alive, and more capable. The method is not so simple: SEO, media systems, business architecture, AI automation, psychology, community building, practical craft, and the stubborn belief that life can be designed with more dignity.
         </p>
       </section>
+
+      <section class="space-grid" id="self" aria-labelledby="self-title">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Personal space</div>
+            <h2 id="self-title">One source. Many lenses.</h2>
+          </div>
+          <div class="tone-switcher" role="tablist" aria-label="Biography tone">
+            <button class="tone-btn active" type="button" data-tone="clear" role="tab" aria-selected="true">Clear</button>
+            <button class="tone-btn" type="button" data-tone="personal" role="tab" aria-selected="false">Personal</button>
+            <button class="tone-btn" type="button" data-tone="funny" role="tab" aria-selected="false">Funny</button>
+            <button class="tone-btn" type="button" data-tone="dramatic" role="tab" aria-selected="false">Drama</button>
+            <button class="tone-btn" type="button" data-tone="motivation" role="tab" aria-selected="false">Motivation</button>
+            <button class="tone-btn" type="button" data-tone="romantic" role="tab" aria-selected="false">Romantic</button>
+          </div>
+        </div>
+
+        <article class="bio-stage reveal" aria-live="polite">
+          <div>
+            <p class="bio-label" id="bioToneLabel">Clear lens</p>
+            <h3 id="bioTitle">The system-seeing creator</h3>
+            <p id="bioBody">
+              Andrij is a Ukrainian-born, Czech-rooted creator based in Prague, building a multilingual ecosystem around conscious people, conscious cooperation, conscious finance, and a personal behind-the-scenes blog. His main professional edge is seeing the whole structure: SEO, marketing funnels, teams, weak links, content systems, automation, and the human reasons why projects either move or freeze.
+            </p>
+          </div>
+          <aside class="identity-notes" aria-label="Identity notes">
+            <span>Bridge between East and West</span>
+            <span>Founder and project lead</span>
+            <span>Media, AI, ecology, community</span>
+            <span>Practical mystic, but invoices still matter</span>
+          </aside>
+        </article>
+
+        <div class="personal-map reveal" aria-label="Personal profile map">
+          <article class="map-card">
+            <span class="map-index">01</span>
+            <h3>Roots</h3>
+            <p>Village childhood near Drohobych, Ukrainian family story, Czech adulthood, early independence, and a strong respect for real work, craft, land, and home.</p>
+          </article>
+          <article class="map-card">
+            <span class="map-index">02</span>
+            <h3>Signal</h3>
+            <p>A mind that turns information into visible structures: funnels, blocks, teams, money flow, trust, attention, and the missing bridge between them.</p>
+          </article>
+          <article class="map-card">
+            <span class="map-index">03</span>
+            <h3>Path</h3>
+            <p>Photography, sport, construction, HR, events, community life, volunteering, media, AI coding, marketing, facilitation, and project leadership.</p>
+          </article>
+          <article class="map-card">
+            <span class="map-index">04</span>
+            <h3>Want</h3>
+            <p>A successful professional life that supports family, nature, travel to meaningful projects, and useful systems for people who are building something real.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="work-section" id="work" aria-labelledby="work-title">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Professional space</div>
+            <h2 id="work-title">What I do when a project needs more than advice.</h2>
+          </div>
+          <p class="section-note">SEO, systems, automation, brand, content, operations, people, and the uncomfortable question: where is the real blockage?</p>
+        </div>
+
+        <div class="service-rail reveal" id="serviceRail"></div>
+
+        <div class="timeline-shell reveal" aria-labelledby="timeline-title">
+          <div class="timeline-head">
+            <div>
+              <div class="section-kicker">Timeline</div>
+              <h3 id="timeline-title">Experience collected from many worlds</h3>
+            </div>
+          </div>
+          <div class="timeline" id="timeline"></div>
+        </div>
+      </section>
+
+      <section class="projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Projects space</div>
+            <h2 id="projects-title">A portfolio that behaves like a constellation.</h2>
+          </div>
+          <div class="filter-cluster" aria-label="Project filters">
+            <button class="filter-btn active" type="button" data-project-filter="all">All</button>
+            <button class="filter-btn" type="button" data-project-filter="media">Media</button>
+            <button class="filter-btn" type="button" data-project-filter="agency">Agency</button>
+            <button class="filter-btn" type="button" data-project-filter="platform">Platform</button>
+            <button class="filter-btn" type="button" data-project-filter="community">Community</button>
+            <button class="filter-btn" type="button" data-project-filter="impact">Impact</button>
+          </div>
+        </div>
+
+        <div class="project-orbit reveal" id="projectGrid"></div>
+      </section>
+
+      <section class="accounts-section" id="accounts" aria-labelledby="accounts-title">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Account matrix</div>
+            <h2 id="accounts-title">Four languages. Four streams. Many doors.</h2>
+          </div>
+          <div class="matrix-controls" aria-label="Account filters">
+            <label>
+              <span>Language</span>
+              <select id="languageFilter">
+                <option value="all">All</option>
+                <option value="UA">Ukrainian</option>
+                <option value="CZ">Czech</option>
+                <option value="EN">English</option>
+                <option value="RU">Russian</option>
+              </select>
+            </label>
+            <label>
+              <span>Stream</span>
+              <select id="streamFilter">
+                <option value="all">All</option>
+                <option value="human">Conscious Human</option>
+                <option value="cooperation">Conscious Cooperation</option>
+                <option value="finance">Conscious Finance</option>
+                <option value="personal">Personal Blog</option>
+              </select>
+            </label>
+            <label>
+              <span>Platform</span>
+              <select id="platformFilter">
+                <option value="all">All</option>
+                <option value="Instagram">Instagram</option>
+                <option value="TikTok">TikTok</option>
+                <option value="YouTube">YouTube</option>
+                <option value="Telegram">Telegram</option>
+                <option value="Facebook">Facebook</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="account-matrix reveal" id="accountMatrix"></div>
+      </section>
+
+      <section class="future-section" id="future" aria-labelledby="future-title">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker">Future space</div>
+            <h2 id="future-title">Ideas, wishes, and things that should become real.</h2>
+          </div>
+          <div class="filter-cluster" aria-label="Future filters">
+            <button class="future-btn active" type="button" data-future-filter="all">All</button>
+            <button class="future-btn" type="button" data-future-filter="life">Life</button>
+            <button class="future-btn" type="button" data-future-filter="work">Work</button>
+            <button class="future-btn" type="button" data-future-filter="community">Community</button>
+            <button class="future-btn" type="button" data-future-filter="tools">Tools</button>
+          </div>
+        </div>
+
+        <div class="future-grid reveal">
+          <div>
+            <h3>Ideas to realize</h3>
+            <div class="stack-list" id="ideaList"></div>
+          </div>
+          <div>
+            <h3>Wishlist</h3>
+            <div class="stack-list" id="wishList"></div>
+          </div>
+        </div>
+      </section>
+
     </main>
+
+    <footer class="site-footer">
+      <p>Built as a local living page for Andrij Pycha. Content distilled from the provided documents.</p>
+      <a href="#home">Back to top</a>
+    </footer>
+
+    <script src="app.js"></script>
   </body>
 </html>
