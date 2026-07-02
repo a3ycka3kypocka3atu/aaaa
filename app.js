@@ -596,19 +596,22 @@ function renderAccounts() {
           .map(
             (account) => `
             <article class="account-row">
-              <div>
+              <div class="account-field account-language">
+                <span class="account-label">Language</span>
                 <strong>${escapeHtml(account.languageName)}</strong>
                 <small>${escapeHtml(account.language)} system</small>
               </div>
-              <div>
+              <div class="account-field">
+                <span class="account-label">Stream</span>
                 <strong>${escapeHtml(account.streamName)}</strong>
                 <small>FB manager: ${escapeHtml(account.fbProfileEmail)}</small>
               </div>
-              <div>
+              <div class="account-field">
+                <span class="account-label">Handle</span>
                 <strong>${escapeHtml(account.username)}</strong>
                 <small>${escapeHtml(account.email)}</small>
               </div>
-              <div class="platforms">
+              <div class="platforms" aria-label="Platforms">
                 ${account.platforms.map((platform) => `<span>${escapeHtml(platform)}</span>`).join("")}
               </div>
               <button class="copy-btn" type="button" data-copy="${escapeHtml(account.username)}">Copy handle</button>

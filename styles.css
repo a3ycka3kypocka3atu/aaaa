@@ -471,7 +471,8 @@ h3 {
 }
 
 .account-matrix {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
 }
 
 .account-card {
@@ -640,9 +641,16 @@ h3 {
 
 .account-row {
   display: grid;
-  grid-template-columns: 0.65fr 1.1fr 1.1fr 1.2fr auto;
-  gap: 14px;
+  grid-template-columns:
+    minmax(118px, 0.7fr)
+    minmax(180px, 1.1fr)
+    minmax(210px, 1.35fr)
+    minmax(230px, 1.55fr)
+    minmax(112px, auto);
+  gap: 18px;
   align-items: center;
+  overflow: hidden;
+  box-shadow: 0 12px 34px rgba(23, 32, 42, 0.06);
 }
 
 .account-row strong,
@@ -650,21 +658,51 @@ h3 {
   display: block;
 }
 
+.account-row strong {
+  line-height: 1.1;
+}
+
 .account-row small {
+  margin-top: 4px;
   color: var(--muted);
   overflow-wrap: anywhere;
+}
+
+.account-field {
+  min-width: 0;
+}
+
+.account-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--teal);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.account-language {
+  padding-left: 12px;
+  border-left: 3px solid var(--coral);
+}
+
+.platforms {
+  min-width: 0;
 }
 
 .platforms span {
   display: inline-flex;
   min-height: 28px;
   align-items: center;
+  justify-content: center;
   padding: 5px 8px;
   border-radius: 999px;
   background: rgba(101, 123, 67, 0.11);
   color: var(--moss);
   font-size: 0.78rem;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .stack-item {
@@ -695,6 +733,9 @@ h3 {
 
 .copy-btn {
   color: var(--ink);
+  width: 100%;
+  min-width: 108px;
+  white-space: nowrap;
 }
 
 .copy-btn:hover,
@@ -735,10 +776,18 @@ h3 {
 
   .personal-map,
   .service-rail,
-  .project-orbit,
-  .account-matrix,
-  .account-row {
+  .project-orbit {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .account-row {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .platforms,
+  .copy-btn {
+    align-self: stretch;
   }
 
   .vault-form {
@@ -755,7 +804,6 @@ h3 {
   .personal-map,
   .service-rail,
   .project-orbit,
-  .account-matrix,
   .account-row,
   .future-grid,
   .vault-form {
