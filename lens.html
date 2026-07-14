@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lens Room — Andrij Pycha</title>
+    <link rel="icon" href="data:," />
+    <meta
+      name="description"
+      content="Explore Andrij Pycha's character, abilities, story, and direction through six different lenses."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="lens.css" />
+  </head>
+  <body class="lens-page" data-active-lens="clear">
+    <div class="lens-ambient" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+
+    <header class="lens-topbar">
+      <a class="brand-mark" href="index.html#self" aria-label="Back to Andrij Pycha home page">
+        <span class="brand-symbol">AP</span>
+        <span>
+          <strong>Andrij Pycha</strong>
+          <small>Back to ecosystem</small>
+        </span>
+      </a>
+      <p class="lens-progress"><span id="lensProgress">01</span> / 06 — point of view</p>
+      <a class="close-lens" href="index.html#self">Close lens <span aria-hidden="true">×</span></a>
+    </header>
+
+    <main>
+      <section class="lens-hero" aria-labelledby="lens-page-title">
+        <div class="lens-hero-copy">
+          <p class="section-kicker">Interactive self-portrait</p>
+          <h1 id="lens-page-title">One person is never one story.</h1>
+          <p>
+            Choose a point of view. The biography, evidence, character signals, and working strengths will all reorganize around it. Nothing here is a costume; every lens reveals a different truth from the same life.
+          </p>
+        </div>
+
+        <div class="lens-picker-shell">
+          <div class="lens-picker" id="lensPicker" role="tablist" aria-label="Choose a lens">
+            <button class="lens-pick active" type="button" data-lens="clear" role="tab" aria-selected="true"><span>01</span>Clear</button>
+            <button class="lens-pick" type="button" data-lens="personal" role="tab" aria-selected="false"><span>02</span>Personal</button>
+            <button class="lens-pick" type="button" data-lens="funny" role="tab" aria-selected="false"><span>03</span>Funny</button>
+            <button class="lens-pick" type="button" data-lens="dramatic" role="tab" aria-selected="false"><span>04</span>Drama</button>
+            <button class="lens-pick" type="button" data-lens="motivation" role="tab" aria-selected="false"><span>05</span>Motivation</button>
+            <button class="lens-pick" type="button" data-lens="romantic" role="tab" aria-selected="false"><span>06</span>Romantic</button>
+          </div>
+          <button class="surprise-button" id="surpriseLens" type="button">
+            <span aria-hidden="true">↻</span> Surprise me
+          </button>
+        </div>
+      </section>
+
+      <section class="portrait-stage" id="portraitStage" aria-live="polite">
+        <div class="portrait-marker" aria-hidden="true">
+          <span id="portraitNumber">01</span>
+          <i></i>
+        </div>
+        <article class="portrait-story">
+          <p class="portrait-label" id="portraitLabel">Clear lens</p>
+          <h2 id="portraitTitle">The system-seeing creator</h2>
+          <p class="portrait-body" id="portraitBody"></p>
+          <blockquote id="portraitClosing"></blockquote>
+        </article>
+        <aside class="portrait-notes" id="portraitNotes" aria-label="Key signals"></aside>
+      </section>
+
+      <section class="facet-section" aria-labelledby="facet-title">
+        <div class="facet-head">
+          <div>
+            <p class="section-kicker">What changes with the lens</p>
+            <h2 id="facet-title">Six parts of the same person.</h2>
+          </div>
+          <p>Open any card. Switch the lens while it is open and watch the same question produce a different answer.</p>
+        </div>
+        <div class="facet-grid" id="facetGrid"></div>
+      </section>
+
+      <section class="signal-section" aria-labelledby="signal-title">
+        <div class="signal-copy">
+          <p class="section-kicker">Character signal</p>
+          <h2 id="signal-title">Not a personality score. A reading of the emphasis.</h2>
+          <p>Each lens turns up a different part of the signal. The underlying abilities stay; the meaning around them shifts.</p>
+        </div>
+        <div class="signal-meters" id="signalMeters">
+          <div class="signal-meter">
+            <div><span>Human sensitivity</span><strong id="meterValue0">76</strong></div>
+            <i><b id="meterBar0"></b></i>
+          </div>
+          <div class="signal-meter">
+            <div><span>Builder drive</span><strong id="meterValue1">88</strong></div>
+            <i><b id="meterBar1"></b></i>
+          </div>
+          <div class="signal-meter">
+            <div><span>Unexpected range</span><strong id="meterValue2">82</strong></div>
+            <i><b id="meterBar2"></b></i>
+          </div>
+        </div>
+      </section>
+
+      <section class="evidence-section" aria-labelledby="evidence-title">
+        <div class="evidence-title-wrap">
+          <p class="section-kicker">The material underneath</p>
+          <h2 id="evidence-title">The lenses are built from lived evidence.</h2>
+        </div>
+        <div class="evidence-trail">
+          <article><span>01</span><strong>Practical work</strong><p>Construction, renovation, logistics, hospitality, events, HR, and customer service.</p></article>
+          <article><span>02</span><strong>Creative work</strong><p>Photography, video, design experiments, content, storytelling, and public communication.</p></article>
+          <article><span>03</span><strong>People and place</strong><p>Community space in Ukraine, ecology, permaculture, volunteering, education, and facilitation across Europe.</p></article>
+          <article><span>04</span><strong>Systems and products</strong><p>SEO, marketing, AI-assisted development, automation, prototypes, portfolio systems, and agency architecture.</p></article>
+        </div>
+      </section>
+
+      <section class="lens-exit">
+        <p id="exitLine">See the whole. Find the blockage. Build the next useful thing.</p>
+        <a href="index.html#work">Now see what I build <span aria-hidden="true">→</span></a>
+      </section>
+    </main>
+
+    <script src="lens-data.js"></script>
+    <script src="lens.js"></script>
+  </body>
+</html>

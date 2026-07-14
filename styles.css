@@ -24,6 +24,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 96px;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -333,6 +337,38 @@ h3 {
   margin: 0;
 }
 
+.lens-intro {
+  max-width: 560px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.lens-controls {
+  display: grid;
+  max-width: 440px;
+  gap: 14px;
+  justify-items: start;
+}
+
+.lens-room-link {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  color: var(--lens-color, var(--teal));
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.lens-room-link span {
+  transition: transform 0.2s ease;
+}
+
+.lens-room-link:hover span {
+  transform: translate(3px, -3px);
+}
+
 .tone-switcher,
 .filter-cluster,
 .matrix-controls {
@@ -362,6 +398,11 @@ h3 {
   grid-template-columns: minmax(0, 1fr) 320px;
   gap: 28px;
   padding: clamp(24px, 4vw, 44px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 92% 12%, var(--lens-soft, #dcebed), transparent 17rem),
+    var(--paper);
+  transition: opacity 0.16s ease, transform 0.16s ease, background 0.3s ease;
 }
 
 .bio-stage p {
@@ -378,8 +419,8 @@ h3 {
 
 .identity-notes span {
   padding: 14px;
-  border-left: 3px solid var(--coral);
-  background: rgba(187, 81, 57, 0.08);
+  border-left: 3px solid var(--lens-color, var(--coral));
+  background: color-mix(in srgb, var(--lens-soft, #f2ddd7) 70%, transparent);
 }
 
 .personal-map,
@@ -394,6 +435,13 @@ h3 {
 
 .personal-map {
   margin-top: 16px;
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.bio-stage.is-changing,
+.personal-map.is-changing {
+  opacity: 0.25;
+  transform: translateY(5px);
 }
 
 .map-card,
@@ -409,7 +457,18 @@ h3 {
 }
 
 .map-index {
-  color: var(--coral);
+  display: inline-block;
+  color: var(--lens-color, var(--coral));
+}
+
+.map-eyebrow {
+  display: block;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .map-card h3,
@@ -417,6 +476,39 @@ h3 {
 .project-card h3,
 .future-card h4 {
   margin-top: 18px;
+}
+
+.map-card h3 {
+  margin-top: 7px;
+}
+
+.map-card {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.map-card::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--lens-color, var(--coral));
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.map-card:hover {
+  border-color: color-mix(in srgb, var(--lens-color, var(--teal)) 38%, transparent);
+  box-shadow: 0 18px 36px rgba(23, 32, 42, 0.08);
+  transform: translateY(-4px);
+}
+
+.map-card:hover::after {
+  transform: scaleX(1);
 }
 
 .service-rail {
@@ -754,6 +846,10 @@ h3 {
 }
 
 @media (max-width: 980px) {
+  section[id] {
+    scroll-margin-top: 208px;
+  }
+
   .topbar {
     grid-template-columns: 1fr;
   }

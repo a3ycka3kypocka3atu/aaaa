@@ -8,44 +8,7 @@ const state = {
   search: "",
 };
 
-const bioCopy = {
-  clear: {
-    label: "Clear lens",
-    title: "The system-seeing creator",
-    body:
-      "Andrij is a Ukrainian-born, Czech-rooted creator based in Prague, building a multilingual ecosystem around conscious people, conscious cooperation, conscious finance, and a personal behind-the-scenes blog. His main professional edge is seeing the whole structure: SEO, marketing funnels, teams, weak links, content systems, automation, and the human reasons why projects either move or freeze.",
-  },
-  personal: {
-    label: "Personal lens",
-    title: "A bridge between survival, sensitivity, and building",
-    body:
-      "My story is not a straight career line. It moves through Ukraine, Czech life, early work, village roots, family loss, sport, photography, construction, volunteering, community, anxiety, sobriety, and a long search for a cleaner way to live. I am trying to turn all of that into something useful: projects that help people become stronger without becoming colder.",
-  },
-  funny: {
-    label: "Funny lens",
-    title: "An entrepreneur for the soul, with spreadsheets nearby",
-    body:
-      "I am the kind of person who can talk about SEO funnels, family values, AI automation, childhood in a village, healthy communities, and why your project has no money flow in the same coffee. Is it too much? Maybe. Is it useful? Also maybe. The goal is simple: make things work, make people feel seen, and please let the dashboard have nice colors.",
-  },
-  dramatic: {
-    label: "Dramatic lens",
-    title: "From chaos into architecture",
-    body:
-      "There were years of pressure, displacement, conflict with systems, inner storms, and a feeling that the world had too many broken structures and too little tenderness. The answer became not escape, but architecture: build media, build platforms, build communities, build businesses, build a home in nature, and turn the wound into a working instrument.",
-  },
-  motivation: {
-    label: "Motivation lens",
-    title: "Believe, build, repeat",
-    body:
-      "Andrij's direction is built on discipline and faith in the process. Learn what is needed. Build what is missing. Help people organize their lives, brands, companies, and dreams. Stay sober, stay honest, keep improving, and create enough success to support family, nature, meaningful travel, and projects that make human life better.",
-  },
-  romantic: {
-    label: "Romantic lens",
-    title: "A house in nature, a desk full of projects, and people worth helping",
-    body:
-      "At the heart of everything is a quiet wish: to live close to nature with family, create useful work, travel to projects when help is needed, and come back to a home that feels like peace. The business is not only for money. It is a road toward dignity, love, land, craft, and a life where ambition still has a human face.",
-  },
-};
+const bioCopy = window.LENS_PROFILES;
 
 const services = [
   {
@@ -475,6 +438,10 @@ const selectors = {
   bioToneLabel: document.querySelector("#bioToneLabel"),
   bioTitle: document.querySelector("#bioTitle"),
   bioBody: document.querySelector("#bioBody"),
+  bioStage: document.querySelector("#bioStage"),
+  identityNotes: document.querySelector("#identityNotes"),
+  personalMap: document.querySelector("#personalMap"),
+  deepDiveLink: document.querySelector("#deepDiveLink"),
   serviceRail: document.querySelector("#serviceRail"),
   timeline: document.querySelector("#timeline"),
   projectGrid: document.querySelector("#projectGrid"),
@@ -505,11 +472,48 @@ function matchesSearch(item) {
   return searchableText(item).includes(state.search.toLowerCase());
 }
 
+let bioRenderTimer;
+
 function renderBio() {
   const copy = bioCopy[state.tone] || bioCopy.clear;
-  selectors.bioToneLabel.textContent = copy.label;
-  selectors.bioTitle.textContent = copy.title;
-  selectors.bioBody.textContent = copy.body;
+  const targets = [selectors.bioStage, selectors.personalMap].filter(Boolean);
+
+  window.clearTimeout(bioRenderTimer);
+  targets.forEach((target) => target.classList.add("is-changing"));
+
+  bioRenderTimer = window.setTimeout(() => {
+    selectors.bioToneLabel.textContent = copy.label;
+    selectors.bioTitle.textContent = copy.title;
+    selectors.bioBody.textContent = copy.body;
+    selectors.bioStage.dataset.tone = state.tone;
+    selectors.bioStage.style.setProperty("--lens-color", copy.color);
+    selectors.bioStage.style.setProperty("--lens-soft", copy.soft);
+    selectors.personalMap.style.setProperty("--lens-color", copy.color);
+    selectors.personalMap.style.setProperty("--lens-soft", copy.soft);
+    selectors.deepDiveLink.href = `lens.html?lens=${encodeURIComponent(state.tone)}`;
+    selectors.deepDiveLink.style.setProperty("--lens-color", copy.color);
+
+    selectors.identityNotes.innerHTML = copy.notes
+      .map((note) => `<span>${escapeHtml(note)}</span>`)
+      .join("");
+
+    selectors.personalMap.innerHTML = copy.cards
+      .map(
+        (card, index) => `
+          <article class="map-card">
+            <span class="map-index">${String(index + 1).padStart(2, "0")}</span>
+            <span class="map-eyebrow">${escapeHtml(card.eyebrow)}</span>
+            <h3>${escapeHtml(card.title)}</h3>
+            <p>${escapeHtml(card.body)}</p>
+          </article>
+        `
+      )
+      .join("");
+
+    window.requestAnimationFrame(() => {
+      targets.forEach((target) => target.classList.remove("is-changing"));
+    });
+  }, 120);
 }
 
 function renderServices() {

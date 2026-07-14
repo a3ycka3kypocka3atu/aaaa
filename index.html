@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Andrij Pycha - Personal Ecosystem</title>
+    <link rel="icon" href="data:," />
     <meta
       name="description"
       content="A living personal ecosystem for Andrij Pycha: SEO, project creation, media, systems, communities, and future ideas."
@@ -24,6 +25,7 @@
 
       <nav class="nav-pills" aria-label="Page sections">
         <a href="#self">Self</a>
+        <a href="lens.html">Lens room</a>
         <a href="#work">Work</a>
         <a href="#projects">Projects</a>
         <a href="#accounts">Accounts</a>
@@ -77,18 +79,24 @@
           <div>
             <div class="section-kicker">Personal space</div>
             <h2 id="self-title">One source. Many lenses.</h2>
+            <p class="lens-intro">Not six writing styles. Six honest ways to understand the same person.</p>
           </div>
-          <div class="tone-switcher" role="tablist" aria-label="Biography tone">
-            <button class="tone-btn active" type="button" data-tone="clear" role="tab" aria-selected="true">Clear</button>
-            <button class="tone-btn" type="button" data-tone="personal" role="tab" aria-selected="false">Personal</button>
-            <button class="tone-btn" type="button" data-tone="funny" role="tab" aria-selected="false">Funny</button>
-            <button class="tone-btn" type="button" data-tone="dramatic" role="tab" aria-selected="false">Drama</button>
-            <button class="tone-btn" type="button" data-tone="motivation" role="tab" aria-selected="false">Motivation</button>
-            <button class="tone-btn" type="button" data-tone="romantic" role="tab" aria-selected="false">Romantic</button>
+          <div class="lens-controls">
+            <div class="tone-switcher" role="tablist" aria-label="Choose a point of view">
+              <button class="tone-btn active" type="button" data-tone="clear" role="tab" aria-selected="true">Clear</button>
+              <button class="tone-btn" type="button" data-tone="personal" role="tab" aria-selected="false">Personal</button>
+              <button class="tone-btn" type="button" data-tone="funny" role="tab" aria-selected="false">Funny</button>
+              <button class="tone-btn" type="button" data-tone="dramatic" role="tab" aria-selected="false">Drama</button>
+              <button class="tone-btn" type="button" data-tone="motivation" role="tab" aria-selected="false">Motivation</button>
+              <button class="tone-btn" type="button" data-tone="romantic" role="tab" aria-selected="false">Romantic</button>
+            </div>
+            <a class="lens-room-link" id="deepDiveLink" href="lens.html?lens=clear">
+              Enter the full lens room <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
 
-        <article class="bio-stage reveal" aria-live="polite">
+        <article class="bio-stage reveal" id="bioStage" data-tone="clear" aria-live="polite">
           <div>
             <p class="bio-label" id="bioToneLabel">Clear lens</p>
             <h3 id="bioTitle">The system-seeing creator</h3>
@@ -96,7 +104,7 @@
               Andrij is a Ukrainian-born, Czech-rooted creator based in Prague, building a multilingual ecosystem around conscious people, conscious cooperation, conscious finance, and a personal behind-the-scenes blog. His main professional edge is seeing the whole structure: SEO, marketing funnels, teams, weak links, content systems, automation, and the human reasons why projects either move or freeze.
             </p>
           </div>
-          <aside class="identity-notes" aria-label="Identity notes">
+          <aside class="identity-notes" id="identityNotes" aria-label="Identity notes">
             <span>Bridge between East and West</span>
             <span>Founder and project lead</span>
             <span>Media, AI, ecology, community</span>
@@ -104,26 +112,30 @@
           </aside>
         </article>
 
-        <div class="personal-map reveal" aria-label="Personal profile map">
+        <div class="personal-map reveal" id="personalMap" aria-label="Personal profile map">
           <article class="map-card">
             <span class="map-index">01</span>
-            <h3>Roots</h3>
-            <p>Village childhood near Drohobych, Ukrainian family story, Czech adulthood, early independence, and a strong respect for real work, craft, land, and home.</p>
+            <span class="map-eyebrow">Core value</span>
+            <h3>Diagnose</h3>
+            <p>He sees where trust, attention, money, communication, or responsibility stops moving — and names the blockage without making the system more complicated.</p>
           </article>
           <article class="map-card">
             <span class="map-index">02</span>
-            <h3>Signal</h3>
-            <p>A mind that turns information into visible structures: funnels, blocks, teams, money flow, trust, attention, and the missing bridge between them.</p>
+            <span class="map-eyebrow">Working mode</span>
+            <h3>Build</h3>
+            <p>Ideas become prototypes, offers, content systems, websites, automation, launch plans, and practical experiments that can be tested in the real world.</p>
           </article>
           <article class="map-card">
             <span class="map-index">03</span>
-            <h3>Path</h3>
-            <p>Photography, sport, construction, HR, events, community life, volunteering, media, AI coding, marketing, facilitation, and project leadership.</p>
+            <span class="map-eyebrow">Human edge</span>
+            <h3>Connect</h3>
+            <p>Six languages, international projects, facilitation, photography, community work, and hands-on operations help him translate between very different people.</p>
           </article>
           <article class="map-card">
             <span class="map-index">04</span>
-            <h3>Want</h3>
-            <p>A successful professional life that supports family, nature, travel to meaningful projects, and useful systems for people who are building something real.</p>
+            <span class="map-eyebrow">Direction</span>
+            <h3>Make it useful</h3>
+            <p>The aim is not advice for its own sake. It is a clearer project, a stronger person, a healthier system, and enough momentum for the next honest step.</p>
           </article>
         </div>
       </section>
@@ -247,6 +259,7 @@
       <a href="#home">Back to top</a>
     </footer>
 
+    <script src="lens-data.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
