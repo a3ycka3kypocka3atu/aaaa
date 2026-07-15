@@ -537,8 +537,10 @@ function renderTimeline() {
       (item) => `
         <article class="timeline-item">
           <time>${escapeHtml(item.time)}</time>
-          <h3>${escapeHtml(item.title)}</h3>
-          <p>${escapeHtml(item.body)}</p>
+          <div class="timeline-content">
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.body)}</p>
+          </div>
         </article>
       `
     )
