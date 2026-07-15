@@ -543,8 +543,22 @@ h3 {
   display: grid;
   grid-template-columns: 110px 1fr;
   gap: 18px;
+  align-items: start;
   padding-top: 14px;
   border-top: 1px solid var(--line);
+}
+
+.timeline-item time {
+  line-height: 1.5;
+}
+
+.timeline-content {
+  min-width: 0;
+}
+
+.timeline-content p {
+  max-width: 760px;
+  margin: 14px 0 0;
 }
 
 .project-orbit {
@@ -909,6 +923,10 @@ h3 {
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .timeline-content p {
+    margin-top: 10px;
   }
 
   .nav-pills a,
